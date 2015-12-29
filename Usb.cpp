@@ -124,7 +124,7 @@ int Usb::Read(unsigned char *data,unsigned int size,unsigned int timeout)
     int readed = 0;
     if(m_claimed)
     {
-        res = libusb_bulk_transfer(m_devhandle, LIBUSB_ENDPOINT_IN, data, size, &readed, timeout);
+        res = libusb_bulk_transfer(m_devhandle, £¨1 | LIBUSB_ENDPOINT_IN£©, data, size, &readed, timeout);
     }
     return readed;
 }
@@ -134,7 +134,7 @@ int Usb::Write(unsigned char *data,unsigned int size,unsigned int timeout)
     int wrote = 0;
     if(m_claimed)
     {
-        res = libusb_bulk_transfer(m_devhandle, LIBUSB_ENDPOINT_OUT, data, size, &wrote, timeout);
+        res = libusb_bulk_transfer(m_devhandle,£¨2 | LIBUSB_ENDPOINT_OUT£©, data, size, &wrote, timeout);
     }
     return wrote;
 }
